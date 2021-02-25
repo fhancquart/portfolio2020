@@ -1,0 +1,436 @@
+// Ink transition
+$frameWidth: 20;
+$frameHeight: 90;
+
+.overlay{
+  background-color: $greenTitle;
+  z-index: 99999;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  #state{
+    font-family: $font;
+    color: #f0f0f04d;
+    text-align: center;
+    display: block;
+    margin: auto;
+    position: relative;
+    top: 38%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    vertical-align: middle;
+    font-size: 10em;
+  }
+  p{
+    font-family: $font2;
+    font-weight: lighter;
+    letter-spacing: 5px;
+    color: #f0f0f04d;
+    text-align: center;
+    display: block;
+    margin: auto;
+    position: relative;
+    text-transform: uppercase;
+    top: 38%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    vertical-align: middle;
+    font-size: 1em;
+  }
+}
+
+#header{
+  position: relative;
+  .titre{
+    position: relative;
+    right: 10em;
+    float: right;
+    h1{
+      line-height: 115px;
+      padding-top: 2em;
+      padding-bottom: .15em;
+      margin: 0;
+      text-align: left;
+    }
+    p{
+      text-align: right;
+      text-transform: uppercase;
+      position: relative;
+      right: 1.75em;
+      letter-spacing: .15em;
+    }
+  }
+  img.and{
+    position: relative;
+    width: 15%;
+    top: 17em;
+    float: right;
+    right: -19em;
+  }
+}
+
+.ink-transition {
+  margin: rem(80) 0;
+  overflow: hidden;
+  position: absolute;
+  left: -1em;
+  z-index: -1;
+  display: none;
+  &::before {
+    background-image: url('/img/ink-photo-frame.png');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+  &::after {
+    animation: ink-transition 1.5s steps(39) 0.5s forwards;
+    background-image: url('/img/ink-transition-sprite.png');
+    background-size: 100% 100%;
+    content: '';
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-1.25%);
+    width: 4000%;
+  }
+  &.is-active::after {
+    animation: ink-transition 2s steps(39) 0.5s forwards;
+  }
+}
+
+.ink-transition-portrait {
+  @include frame-size(400px, true);
+  &::before {
+    background-image: url('/img/ink-photo-frame-portrait.png');
+  }
+}
+
+.ink-transition-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ink-transition-img {
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  width: 100%;
+  .is-active & {
+    opacity: 1;
+  }
+  .ink-transition-img-top & {
+    object-position: 50% 0;
+  }
+}
+
+#savethedate{
+  padding-top: 8em;
+  p.scroll{
+    text-align: center;
+    letter-spacing: 2px;
+    display: block;
+    position: relative;
+    padding-bottom: 8em;
+    &::before {
+      content: '';
+      position: absolute;
+      height: 5em;
+      width: 1px;
+      top: 2.5em;
+      left: 50%;
+      right: 50%;
+      background-color: #28413594;
+      transform-origin: left;
+      animation-name: line-scroll;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+  }
+  img.anneaux{
+    display: block;
+    margin: auto;
+  }
+  h2, p.date{
+    text-align: center;
+    display: block;
+    margin: auto;
+  }
+  h2{
+    font-size: 4em;
+    padding-bottom: 5em;
+  }
+  p.date{
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: .8em;
+    padding-top: 2em;
+  }
+}
+
+#parallax{
+  .bague{
+    position: absolute;
+    right: 53%;
+    top: -12em;
+    z-index: 1;
+  }
+  .demande{
+    float: right;
+    padding-bottom: 6em;
+    position: relative;
+    right: -8em;
+  }
+}
+
+#fiançailles{
+  position: relative;
+  top: -57.5em;
+  .contenu{
+    position: relative;
+    .mosaic{
+      .vingtetun{
+        z-index: -1;
+        right: 0;
+        top: -.95em;
+        right: .5em;
+      }
+      .zerohuit{
+        top: .25em;
+        left: .1em;
+        z-index: 9;
+      }
+      .vingtetun, .zerohuit{
+        font-family: $font;
+        position: absolute;
+        font-size: 25em;
+        color: rgba(0, 0, 0, 0);
+      }
+    }
+    .galery{
+      text-decoration: none;
+    }
+  }
+}
+
+#lieu{
+  display: block;
+  position: relative;
+  padding: 0em 0 5em 0;
+  .lieu{
+    letter-spacing: 2px;
+    display: block;
+    position: relative;
+  }
+  h2, p.ville{
+    display: block;
+    margin: auto;
+  }
+  h2{
+    font-size: 4em;
+  }
+  p.ville{
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: .8em;
+    padding-top: .85em;
+    padding-bottom: 3em;
+  }
+  img.agapes{
+    height: auto;
+    max-width: 100%;
+    display: block;
+  }
+}
+
+#message{
+  @extend #savethedate;
+  h2{
+    padding: inherit;
+  }
+  p{
+    padding-bottom: 4em;
+  }
+}
+
+
+
+
+//----------------------------------------------------------------------------------------- //
+// -------------------------------------- RESPONSIVE -------------------------------------- //
+//----------------------------------------------------------------------------------------- //
+@media screen and (min-width: 1280px) {
+    @import '../responsive/1200';
+}
+
+@media screen and (min-width: 961px) and (max-width: 1279px) {
+    @import '../responsive/800';
+}
+
+@media screen and (min-width: 602px) and (max-width: 960px) {
+    @import '../responsive/600';
+}
+
+@media screen and (max-width: 601px) {
+    @import '../responsive/480';
+}
+
+
+
+//------------------------------------------------------------------------------------------------ //
+// -------------------------------------- RESPONSIVE 480 PX -------------------------------------- //
+//------------------------------------------------------------------------------------------------ //
+@media screen and (max-width: 601px) {
+  header{
+    ul{
+      padding: 3em 1em 0em 0em;
+    }
+    .logo{
+      padding-left: 1em;
+    }
+  }
+  #header{
+    img.and{
+      width: 27%;
+      top: -14em;
+      left: -4em;
+    }
+    .titre{
+      left: 0;
+      right: inherit;
+      h1{
+        line-height: 80px;
+      }
+    }
+  }
+  #savethedate {
+      padding-top: 0;
+      padding-bottom: 3em;
+  }
+  #fiançailles{
+    .mosaic {
+      .vingtetun{
+        right: 0 !important;
+      }
+      .zerohuit{
+        left: -.35em !important;
+      }
+      #bague{
+        img{
+          width: 80%;
+        }
+      }
+      #demande{
+        right: inherit !important;
+        img{
+          width: 70%;
+          float: right;
+        }
+      }
+    }
+  }
+}
+//------------------------------------------------------------------------------------------------ //
+// -------------------------------------- RESPONSIVE 600 PX -------------------------------------- //
+//------------------------------------------------------------------------------------------------ //
+@media screen and (min-width: 602px) and (max-width: 960px) {
+
+  header{
+    ul{
+          text-align: center;
+    }
+  }
+  #header{
+    img.and{
+      width: 24%;
+      top: 17.5em;
+      right: -36em;
+    }
+    .titre{
+      right: -8em;
+      h1{
+        line-height: 80px;
+      }
+    }
+  }
+  #savethedate {
+      padding-top: 10em;
+      padding-bottom: 3em;
+  }
+  #fiançailles{
+    .mosaic {
+      .vingtetun{
+        right: 0 !important;
+      }
+      .zerohuit{
+        left: -.35em !important;
+      }
+      #bague{
+        img{
+          width: 80%;
+        }
+      }
+      #demande{
+        right: inherit !important;
+        img{
+          width: 70%;
+          float: right;
+        }
+      }
+    }
+  }
+
+}
+//------------------------------------------------------------------------------------------------ //
+// -------------------------------------- RESPONSIVE 800 PX -------------------------------------- //
+//------------------------------------------------------------------------------------------------ //
+@media screen and (min-width: 961px) and (max-width: 1279px) {
+
+  .ink-transition{
+    right: 20em;
+  }
+  #header{
+    img.and{
+      width: 21%;
+      top: 16.5em;
+      right: -36.5em;
+    }
+    .titre{
+      right: -10em;
+      h1{
+        line-height: 95px;
+      }
+    }
+  }
+  #savethedate {
+      padding-top: 6em;
+  }
+  #fiançailles{
+    .mosaic {
+      #bague{
+        img{
+          width: 80%;
+        }
+      }
+      #demande{
+        img{
+          width: 70%;
+          float: right;
+        }
+      }
+    }
+  }
+
+}
+//------------------------------------------------------------------------------------------------- //
+// -------------------------------------- RESPONSIVE 1200 PX -------------------------------------- //
+//------------------------------------------------------------------------------------------------- //
+@media screen and (min-width: 1281px) and (max-width: 1365px) {
+}

@@ -1,0 +1,22 @@
+$greyBg: #fcfbf9;
+$greenTitle:#3a4f44;
+$greenText: #67746d;
+$greenLink: #5b9c7d;
+
+@function rem($pixel) {
+  @return $pixel / 16 + rem;
+}
+
+/**
+* Mixins
+*/
+
+@mixin frame-size($imageWidth, $framePortrait: false) {
+  @if $framePortrait == false {
+    height: ($frameHeight * $imageWidth / $frameWidth);
+    width: $imageWidth;
+  } @else {
+    height: $imageWidth;
+    width: ($frameHeight * $imageWidth / $frameWidth);
+  }
+}

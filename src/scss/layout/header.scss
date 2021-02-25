@@ -1,0 +1,28 @@
+@import '../base/animation';
+
+header{
+  .logo{
+    width: 3.5%;
+    padding-top: 3em;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  ul{
+    padding: 3em 0 0 0;
+    margin: 0;
+    text-align: right;
+    display: inline-block;
+    vertical-align: middle;
+    float: right;
+    li {
+      display: inline-block;
+      list-style-type: none;
+      padding: 1em 0.15em;
+      color: $greenText;
+      span {
+        display: inline-block;
+        color: $greenTitle;
+      }
+    }
+  }
+}

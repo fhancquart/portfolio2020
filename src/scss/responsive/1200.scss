@@ -1,0 +1,60 @@
+/* Containers */
+body {  font-size: 16px; }
+.contenu{ width:1390px; margin: auto; display: block;}
+
+/* Computer */
+.grid_1 { width: 6.5%; }
+.grid_2 { width: 15%; }
+.grid_3 { width: 23.5%; }
+.grid_4 { width: 32%; }
+.grid_5 { width: 40.5%; }
+.grid_6 { width: 49%; }
+.grid_7 { width: 57.5%; }
+.grid_8 { width: 66%; }
+.grid_9 { width: 74.5%; }
+.grid_10 { width: 83%; }
+.grid_11 { width: 91.5%; }
+.grid_12 { width: 98.5%; }
+.grid_2_4{ width: 19%; }
+
+.offset_1 { margin-left: 6.5%; }
+.offset_2 { margin-left: 15%; }
+.offset_3 { margin-left: 23.5%; }
+.offset_4 { margin-left: 32%; }
+.offset_5 { margin-left: 40.5%; }
+.offset_6 { margin-left: 49%; }
+.offset_7 { margin-left: 57.5%; }
+.offset_8 { margin-left: 66%; }
+.offset_9 { margin-left: 74.5%; }
+.offset_10 { margin-left: 83%; }
+.offset_11 { margin-left: 91.5%; }
+.offset_12 { margin-left: 98.5%; }
+
+@media screen and (min-width: 1280px) and (max-width: 1536px) {
+  #wrapper .box1 .slider-wrap{
+      top: 13%;
+  }
+  .box1 #header-home .title{
+    padding-top: 12em !important;
+  }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1710px) {
+  .contenu{
+    width: 1200px;
+  }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1536px) {
+  .box1 #header-home .title{
+    left: initial !important;
+  }
+}
+
+.slide__image, .slide__content{
+    height: 34em !important;
+}
+
+.slide__title{
+    bottom: -.5em !important;
+}

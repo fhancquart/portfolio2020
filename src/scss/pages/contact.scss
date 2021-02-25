@@ -1,0 +1,257 @@
+#pageContact{
+  h2{
+    color: #fff;
+    font-family: $font;
+    font-size: 7em;
+    padding-top: 1em;
+    line-height: 1em;
+    font-weight: bold;
+    span{
+      height: 100px;
+      overflow: hidden;
+      display: block;
+      position: relative;
+      top: 0em;
+      &:nth-child(1) span{
+        height: 100px;
+        top: 100%;
+        animation: show 1.15s cubic-bezier(0.01, 0.1, 0.01, 0.9) normal forwards;
+        animation-delay: 1s;
+      }
+    }
+
+  p{
+    span{
+      height: 30px;
+      overflow: hidden;
+      display: block;
+      position: relative;
+      top: 0em;
+      &:nth-child(1) span{
+        height: 30px;
+        top: 100%;
+        animation: show 1.15s cubic-bezier(0.01, 0.1, 0.01, 0.9) normal forwards;
+        animation-delay: 1.25s;
+      }
+    }
+  }
+  div.chat{
+    display: inline-block;
+  }
+  .chat{
+    text-shadow: -1px 0 $light-gray, 0 1px $light-gray, 1px 0 $light-gray, 0 -1px $light-gray;
+    color: $grey;
+    text-decoration: none;
+  }
+  p{
+    font-family: $font2;
+    color: #fff;
+    margin-top: 2.5em;
+  }
+  a{
+    color: #fff;
+  }
+}
+p.ss_contact{
+  color: #fff;
+  padding-top: 1.5em;
+  font-family: $font2;
+  padding-bottom: 4em;
+  a{
+    color: #fff;
+  }
+  span{
+    height: 30px;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    top: 0em;
+    &:nth-child(1) span{
+      height: 30px;
+      top: 100%;
+      animation: show 1.15s cubic-bezier(0.01, 0.1, 0.01, 0.9) normal forwards;
+      animation-delay: 1.25s;
+    }
+  }
+}
+.bottom{
+  margin-top: 5em;
+
+}
+p.titre{
+  font-family: $font3;
+  font-size: 1.1em;
+  color: $light-gray;
+  padding-bottom: 1.5em;
+}
+p.social{
+  padding: 0 .5em 0 0;
+  opacity: 0.7;
+  font-family: $font2;
+  color: $light-gray;
+  span{
+    height: 20px;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    top: 0em;
+    &:nth-child(1) span{
+      height: 20px;
+      top: 100%;
+      animation: show 1.15s cubic-bezier(0.01, 0.1, 0.01, 0.9) normal forwards;
+      animation-delay: 1.75s;
+    }
+  }
+}
+.block__title {
+  position: relative;
+  text-shadow: -1px 0 $light-gray, 0 1px $light-gray, 1px 0 $light-gray, 0 -1px $light-gray;
+  color: $grey;
+  display: inline-block;
+  margin: 0 0 1.5rem 0;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+.block__title:hover {
+  color: #111;
+}
+
+.block__link {
+  position: relative;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  color: var(--color-blocklink);
+}
+
+.block__link:hover {
+  color: var(--color-blocklink-hover);
+}
+
+.block__title span,
+.block__link span {
+  display: inline-block;
+  white-space: pre;
+}
+
+.block[data-fx="1"] a::after,
+.block[data-fx="2"] a::after {
+  content: '';
+  z-index: -1;
+  width: 100%;
+  bottom: 0.25rem;
+  left: 0;
+  position: absolute;
+  height: 2px;
+  background: currentColor;
+  transform: scale3d(0,1,1);
+  transform-origin: 0% 50%;
+  transition: transform 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+}
+
+.block[data-fx="1"] a:hover::after,
+.block[data-fx="2"] a:hover::after {
+  transform: scale3d(1,1,1)
+}
+
+.hover-reveal {
+  position: fixed;
+  width: 350px;
+  height: 300px;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.hover-reveal__inner,
+.hover-reveal__img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hover-reveal__deco {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  background-color: #181314;
+}
+
+.hover-reveal__img {
+  background-size: cover;
+  background-position: 50% 50%;
+
+}
+}
+
+.slider-contact{
+  position: absolute;
+  width: 100%;
+  bottom: 10em;
+  left: -100em;
+  right: 0;
+  display: block;
+  margin: auto;
+  @mixin white-gradient {
+    background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  }
+
+  $animationSpeed: 100s;
+
+  // Animation
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 7))}
+  }
+
+
+  // Styling
+  .slider {
+    height: 100px;
+    padding-top: 1.5em;
+    margin: auto;
+    position: relative;
+    width: 100%;
+    display: block;
+    vertical-align: middle;
+
+    &::after {
+      right: 0;
+      top: 0;
+      transform: rotateZ(180deg);
+    }
+
+    &::before {
+      left: 0;
+      top: 0;
+    }
+
+    .slide-track {
+      animation: scroll $animationSpeed linear infinite;
+      display: flex;
+      width: calc(225px * 14);
+      position: relative;
+      top: 1em;
+    }
+
+    .slide {
+      height: 100px;
+      width: 100%;
+      vertical-align: middle;
+      padding: 0 20em;
+      opacity: .1;
+    }
+#slide-word{
+  font-family: $font;
+  font-size: 8em;
+  padding: 0 2em;
+  position: absolute;
+  font-weight: 600;
+  color: #fff;
+  z-index: 0;
+  width: 100%;
+}
+}}

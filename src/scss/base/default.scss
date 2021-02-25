@@ -1,0 +1,244 @@
+body{
+  background-color: $greyBg;
+  min-height: 100%;
+  position: relative;
+  display: block;
+}
+
+a.logo_menu{
+  outline: inherit;
+}
+
+::selection {
+    background-color: $greenLink;
+    color: #fff;
+}
+
+/*** Mozilla based browsers ***/
+::-moz-selection {
+    background-color: $greenLink;
+    color: #fff;
+}
+
+/***For Other Browsers ***/
+::-o-selection {
+    background-color: $greenLink;
+    color: #fff;
+}
+
+::-ms-selection {
+    background-color: $greenLink;
+    color: #fff;
+}
+
+/*** For Webkit ***/
+::-webkit-selection {
+    background-color: $greenLink;
+    color: #fff;
+}
+
+.button{
+  text-decoration: none;
+	display: flex;
+	align-items: center;
+	padding: 20px 40px;
+	border: 1px solid rgba($greenTitle, 0.2);
+	transition: border-color 1s $ease-out-quint;
+  width: fit-content;
+  margin: auto;
+	&__text {
+		color: $greenTitle;
+		text-transform: uppercase;
+		letter-spacing: 1.5px;
+		font-size: 13px;
+		line-height: 13px;
+		transform: translateX(16px);
+		transition: transform 0.8s $ease-out-quint;
+	}
+
+	&__icon {
+		display: inline-block;
+		width: 12px;
+		height: 1px;
+		background-color: $greenTitle;
+		margin-left: 18px;
+		position: relative;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.8s $ease-out-quint;
+
+		&::before,
+		&::after {
+			content: '';
+			display: inline-block;
+			width: 5px;
+			height: 1px;
+			background-color: $greenTitle;
+			position: absolute;
+			right: 0;
+			transition: transform 0.8s $ease-out-quint;
+		}
+
+		&::before {
+			transform-origin: top right;
+			transform: rotate(40deg) scaleX(0);
+		}
+
+		&::after {
+			transform-origin: bottom right;
+			transform: rotate(-40deg) scaleX(0);
+		}
+	}
+
+	&:hover {
+		border-color: $greenTitle;
+
+		.button__text {
+			transform: none;
+		}
+
+		.button__icon {
+			// transform-origin: left;
+			transform: scaleX(1);
+
+			&::before {
+				transform: rotate(40deg) scaleX(1);
+			}
+
+			&::after {
+				transform: rotate(-40deg) scaleX(1);
+			}
+		}
+	}
+}
+
+[data-scroll] {
+	will-change: transform;
+}
+
+.frame {
+	padding: 2.5rem 3rem;
+	position: absolute;
+	z-index: 10;
+}
+
+.frame__title {
+	font-size: 1rem;
+	margin: 0 0 2.5rem;
+}
+
+.frame__links {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.frame a {
+	margin: 0.25rem 0;
+	text-transform: lowercase;
+}
+
+.frame__github,
+.frame__links a:not(:last-child),
+.frame__demos a:not(:last-child) {
+	margin-right: 1rem;
+}
+
+.frame__demos {
+	margin: 1rem 0;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	align-items: center;
+	padding: 12rem 0;
+	counter-reset: figure;
+}
+
+.item {
+	margin: 1vh auto;
+	max-width: 100%;
+	position: relative;
+	will-change: transform;
+}
+
+.item__img-wrap {
+	--aspect-ratio: 1/1.5;
+	overflow: hidden;
+	width: 500px;
+	margin: 0 auto;
+	padding-bottom: calc(100% / (var(--aspect-ratio)));
+	max-width: calc(100% - 2rem);
+	will-change: transform;
+}
+
+.item:first-child .item__img-wrap {
+	--aspect-ratio: 8/10;
+	--image: url("/img/bague.jpg");
+}
+
+.item:nth-child(2) .item__img-wrap {
+	width: 800px;
+	--aspect-ratio: 120/86;
+	--image: url("/img/demande.jpg");
+}
+
+.item:nth-child(3) .item__img-wrap {
+	--aspect-ratio: 60/75;
+	--image: url("/img/agapes.jpg");
+}
+
+.item:nth-child(4) .item__img-wrap {
+	width: 80%;
+	--aspect-ratio: 900/505;
+	--image: url("/img/agapes.jpg");
+}
+
+.item__img {
+	--overflow: 40px;
+	height: calc(100% + (0 * var(--overflow)));
+	top: calc( 0 * var(--overflow));
+	width: 100%;
+	position: absolute;
+	background-image: var(--image);
+	background-size: cover;
+	background-position: 50% 0%;
+	will-change: transform;
+}
+
+.item__img--t1 {
+	--overflow: 60px;
+}
+
+.item__img--t2 {
+	--overflow: 80px;
+}
+
+.item__img--t3 {
+	--overflow: 120px;
+}
+
+.item__caption {
+	padding: 2rem 1rem;
+}
+
+.item__caption-title {
+	font-weight: 400;
+	font-size: 3rem;
+	margin: 0;
+}
+
+.item__caption-copy {
+	margin: 0;
+}
+
+.item__caption-copy::before {
+	content: '__';
+	line-height: 1;
+	font-weight: 700;
+	font-size: 3rem;
+	margin: 0 0 1rem;
+	display: block;
+}

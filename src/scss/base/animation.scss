@@ -1,0 +1,36 @@
+@keyframes ink-transition {
+  0% {
+    transform: translateX(-1.25%);
+  }
+
+  99% {
+    transform: translateX(-98.75%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-98.75%);
+    opacity: 0;
+  }
+}
+
+@keyframes line-scroll {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  25% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  75% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+$ease-out-quint: cubic-bezier(0.230,  1.000, 0.320, 1.000);
